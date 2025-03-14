@@ -25,9 +25,9 @@ function NavItem({ title, url, isSelected }: NavItemProps) {
 export default function Navbar() {
   const pathname = usePathname();
   return (
-    <div className="flex justify-center mx-auto max-w-7xl h-16 pt-6">
+    <div className="flex justify-center mx-auto max-w-7xl h-16 pt-6 bg-gray-900 border-2">
       <nav>
-        <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur">
+        <ul className="flex rounded-full px-3 text-sm font-medium text-white shadow-lg ring-1 ring-gray-700 backdrop-blur bg-gray-800 shadow-gray-950">
           <NavItem title="Tentang Saya" url="/" isSelected={pathname === "/"} />
           <NavItem
             title="Proyek"

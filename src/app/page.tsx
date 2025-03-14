@@ -1,141 +1,185 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa";
 
 export const metadata: Metadata = {
   title: "Tentang Saya | BAYU GILANG PAMUNGKAS - Pengembang Web",
   description:
-    "Saya adalah seorang pengembang perangkat lunak yang berfokus pada teknologi web modern seperti React, TypeScript, dan Next.js.",
+    "Mengembangkan aplikasi web modern menggunakan teknologi seperti React, TypeScript, dan Next.js untuk solusi digital yang berorientasi pengguna.",
 };
 
 export default function About() {
-  const techStack = {
-    frontend: [
-      {
-        name: "JavaScript",
-        color: "bg-amber-100 text-amber-800 border-amber-200",
-      },
-      {
-        name: "TypeScript",
-        color: "bg-blue-100 text-blue-800 border-blue-200",
-      },
-      { name: "React", color: "bg-cyan-100 text-cyan-800 border-cyan-200" },
-      { name: "Next.js", color: "bg-zinc-100 text-zinc-800 border-zinc-200" },
-      {
-        name: "HTML5",
-        color: "bg-orange-100 text-orange-800 border-orange-200",
-      },
-      {
-        name: "CSS3",
-        color: "bg-indigo-100 text-indigo-800 border-indigo-200",
-      },
-      { name: "Tailwind", color: "bg-sky-100 text-sky-800 border-sky-200" },
-    ],
-    backend: [
-      { name: "PHP", color: "bg-purple-100 text-purple-800 border-purple-200" },
-      { name: "Laravel", color: "bg-rose-100 text-rose-800 border-rose-200" },
-      { name: "CodeIgniter", color: "bg-red-100 text-red-800 border-red-200" },
-      { name: "MySQL", color: "bg-blue-100 text-blue-800 border-blue-200" },
-      {
-        name: "Firebase",
-        color: "bg-yellow-100 text-yellow-800 border-yellow-200",
-      },
-    ],
-    other: [
-      {
-        name: "Python",
-        color: "bg-emerald-100 text-emerald-800 border-emerald-200",
-      },
-      {
-        name: "Java",
-        color: "bg-orange-100 text-orange-800 border-orange-200",
-      },
-      {
-        name: "Kotlin",
-        color: "bg-violet-100 text-violet-800 border-violet-200",
-      },
-    ],
-  };
+  const techStack = [
+    {
+      name: "JavaScript",
+      color: "bg-amber-100 text-amber-800 border-amber-200",
+      icon: "💻",
+    },
+    {
+      name: "TypeScript",
+      color: "bg-blue-100 text-blue-800 border-blue-200",
+      icon: "🔷",
+    },
+    {
+      name: "React",
+      color: "bg-cyan-100 text-cyan-800 border-cyan-200",
+      icon: "⚛️",
+    },
+    {
+      name: "Next.js",
+      color: "bg-zinc-100 text-zinc-800 border-zinc-200",
+      icon: "▲",
+    },
+    {
+      name: "HTML5",
+      color: "bg-orange-100 text-orange-800 border-orange-200",
+      icon: "📄",
+    },
+    {
+      name: "CSS3",
+      color: "bg-indigo-100 text-indigo-800 border-indigo-200",
+      icon: "🎨",
+    },
+    {
+      name: "Tailwind",
+      color: "bg-sky-100 text-sky-800 border-sky-200",
+      icon: "🌊",
+    },
+  ];
+
+  const experiences = [
+    {
+      title: "Pengembang Web Frontend",
+      company: "PT. SEMUA APLIKASI INDONESIA",
+      duration: "2024 - Sekarang",
+      description:
+        "Mengembangkan aplikasi web modern dengan React dan Laravel.",
+    },
+    {
+      title: "Pengembang Front-end dan Styling",
+      company: "Startup Digital",
+      duration: "2024 - 2025",
+      description:
+        "Membangun antarmuka pengguna responsif dengan Next.js, Laravel, dan Tailwind CSS.",
+    },
+  ];
+
+  const socialLinks = [
+    {
+      href: "https://github.com/bayugilangpamungkas",
+      icon: <FaGithub className="text-xl" />,
+      label: "GitHub",
+      bgColor: "bg-zinc-800 hover:bg-zinc-700 text-white",
+    },
+    {
+      href: "mailto:gilangb256@gmail.com",
+      icon: <FaEnvelope className="text-xl" />,
+      label: "Email",
+      bgColor:
+        "bg-blue-50 hover:bg-blue-100 text-blue-700 border-2 border-blue-100",
+    },
+    {
+      href: "https://linkedin.com/in/bayugilangpamungkas",
+      icon: <FaLinkedin className="text-xl" />,
+      label: "LinkedIn",
+      bgColor:
+        "bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border-2 border-indigo-100",
+    },
+  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 py-16">
-      <div className="max-w-5xl mx-auto px-6 sm:px-8">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-indigo-50 py-16 font-sans ">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 ">
         {/* Hero Section */}
-        <div className="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden mb-12">
+        <div className="bg-white rounded-3xl shadow-xl border border-blue-100 overflow-hidden mb-16 transition-transform hover:scale-[1.01] duration-300">
           <div className="grid grid-cols-1 md:grid-cols-[2fr,1fr] gap-0">
             {/* Content Section */}
-            <div className="p-8 md:p-12 flex flex-col justify-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-zinc-800 relative">
-                <span className="relative inline-block">
-                  Bayu Gilang Pamungkas
-                  <span className="absolute -bottom-2 left-0 w-1/3 h-1 bg-blue-500 rounded-full"></span>
-                </span>
-              </h1>
-              <p className="text-lg md:text-xl font-light text-zinc-700 mt-4">
-                Saya seorang pengembang perangkat lunak yang berfokus pada{" "}
-                <span className="font-medium text-zinc-900">
-                  teknologi web modern
-                </span>
-                .
-              </p>
+            <div className="p-8 md:p-14 flex flex-col justify-center">
+              <span className="px-4 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6 animate-pulse">
+                Frontend Developer
+              </span>
 
-              <div className="mt-6 flex gap-4">
-                <a
-                  href="https://github.com/bayugilangpamungkas"
-                  target="_blank"
-                  className="px-5 py-3 bg-zinc-800 text-white font-medium rounded-xl shadow-md hover:bg-zinc-700 transition-all"
-                >
-                  GitHub
-                </a>
-                <a
-                  href="mailto:gilangb256@gmail.com"
-                  className="px-5 py-3 bg-blue-50 text-blue-700 font-medium rounded-xl border-2 border-blue-100 hover:bg-blue-100 transition-all"
-                >
-                  Email
-                </a>
-              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-800 relative">
+                Bayu Gilang Pamungkas
+                <span className="absolute -bottom-3 left-0 w-1/2 h-2 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"></span>
+              </h1>
+
+              <p className="text-lg md:text-xl font-light text-zinc-600 mt-6 leading-relaxed max-w-2xl">
+                Teknologi web modern seperti{" "}
+                <span className="font-medium text-zinc-900 underline decoration-blue-500 decoration-2 underline-offset-2">
+                  React, TypeScript, dan Next.js
+                </span>{" "}
+                adalah kanvas bagi kreativitas saya dalam menghadirkan solusi
+                digital yang memukau dan berorientasi pengguna.
+              </p>
             </div>
 
             {/* Profile Image Section */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 flex items-center justify-center">
-              <div className="relative w-64 h-64 md:w-full md:h-full max-w-xs">
-                <div className="absolute -inset-1 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl blur-sm opacity-75"></div>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 flex flex-col items-center justify-center">
+              <div className="relative w-64 h-64 md:w-full md:h-full max-w-xs mb-8">
                 <Image
                   src="/images/project2.jpg"
-                  alt="Bayu Gilang"
+                  alt="Foto Profil Bayu Gilang Pamungkas"
                   width={300}
                   height={300}
-                  className="relative rounded-2xl shadow-lg object-cover"
+                  className="rounded-2xl shadow-lg object-cover border-4 border-white"
                   priority
                 />
+              </div>
+
+              {/* Social Links */}
+              <div className="flex flex-wrap justify-center gap-2 mt-6">
+                {socialLinks.map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`px-4 py-2 ${link.bgColor} font-medium rounded-xl shadow-md transition-all flex items-center gap-2`}
+                  >
+                    {link.icon}
+                    <span>{link.label}</span>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
         </div>
 
         {/* Tech Stack Section */}
-        <div className="bg-white rounded-3xl shadow-md p-8 border border-blue-100 mb-12">
-          <h2 className="text-2xl font-bold text-zinc-800 mb-8">
+        <div className="bg-white rounded-3xl shadow-lg p-10 border border-blue-100 mb-16">
+          <h2 className="text-3xl font-bold text-zinc-800 mb-4">
             Teknologi & Keahlian
           </h2>
-
-          <div className="space-y-6">
-            {Object.entries(techStack).map(([category, skills]) => (
-              <div key={category}>
-                <h3 className="text-lg font-semibold text-zinc-700 mb-3 capitalize">
-                  {category}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((tech, index) => (
-                    <span
-                      key={index}
-                      className={`px-3 py-1 rounded-full border text-sm font-medium ${tech.color} hover:scale-105 transition-transform`}
-                    >
-                      {tech.name}
-                    </span>
-                  ))}
-                </div>
-              </div>
+          <div className="flex flex-wrap gap-3">
+            {techStack.map((tech, index) => (
+              <span
+                key={index}
+                className={`px-4 py-2 rounded-xl border-2 text-sm font-medium ${tech.color} hover:scale-105 transition-transform flex items-center gap-2 shadow-sm`}
+              >
+                <span className="text-lg">{tech.icon}</span>
+                {tech.name}
+              </span>
             ))}
+          </div>
+        </div>
+
+        {/* Contact Section */}
+        <div className="relative z-10">
+          <h2 className="text-3xl font-bold mb-4">Mari Terhubung!</h2>
+          <p className="text-zinc-600 max-w-xl mb-8">
+            Apakah Anda memiliki proyek menarik atau ingin berkolaborasi? Jangan
+            ragu untuk menghubungi saya.
+          </p>
+
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="mailto:gilangb256@gmail.com"
+              className="px-6 py-3 bg-white text-blue-700 font-medium rounded-xl hover:bg-blue-50 transition-all flex items-center gap-2"
+            >
+              <FaEnvelope className="text-xl" />
+              <span>gilangb256@gmail.com</span>
+            </a>
           </div>
         </div>
       </div>

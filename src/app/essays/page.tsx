@@ -16,6 +16,7 @@ interface Article {
   title: string;
   description: string;
   category: string;
+  categoryColor: string;
 }
 
 const articles: Article[] = [
@@ -26,6 +27,7 @@ const articles: Article[] = [
     description:
       "Panduan lengkap memulai project dengan Next.js dan TypeScript. Pelajari cara membangun aplikasi modern dengan performa tinggi.",
     category: "Framework",
+    categoryColor: "bg-purple-200 text-purple-800",
   },
   {
     slug: "belajar-typescript",
@@ -34,6 +36,7 @@ const articles: Article[] = [
     description:
       "Pengenalan dasar TypeScript untuk pengembang JavaScript. Pahami type system dan cara menggunakannya untuk meningkatkan kualitas kode.",
     category: "Programming",
+    categoryColor: "bg-blue-200 text-blue-800",
   },
   {
     slug: "optimasi-react",
@@ -42,6 +45,7 @@ const articles: Article[] = [
     description:
       "Pelajari berbagai teknik untuk meningkatkan kecepatan aplikasi React Anda, termasuk memoization, code splitting, dan lazy loading.",
     category: "Performance",
+    categoryColor: "bg-green-200 text-green-800",
   },
   {
     slug: "tailwind-css-tips",
@@ -50,20 +54,24 @@ const articles: Article[] = [
     description:
       "Kumpulan tips dan trik untuk meningkatkan workflow pengembangan dengan Tailwind CSS. Dapatkan hasil maksimal dengan utility-first CSS.",
     category: "Styling",
+    categoryColor: "bg-rose-200 text-rose-800",
   },
 ];
 
 export default function Essays() {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-indigo-50 to-blue-50 py-16">
-      <div className="max-w-4xl mx-auto px-6 sm:px-8">
+    <div className="relative min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center p-8">
+      {/* Background Blur */}
+      <div className="absolute inset-0 bg-black/30 backdrop-blur-xl"></div>
+
+      <div className="relative z-10 max-w-5xl w-full mx-auto px-6 sm:px-8">
         {/* Header Section */}
         <header className="mb-12 text-center">
-          <h1 className="font-extrabold text-4xl md:text-5xl text-gray-800 mb-4 relative inline-block">
+          <h1 className="font-extrabold text-4xl md:text-5xl text-white mb-4 relative inline-block">
             Esai
             <span className="absolute -bottom-2 left-1/2 w-16 h-1 bg-blue-500 rounded-full transform -translate-x-1/2"></span>
           </h1>
-          <p className="mt-6 text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="mt-6 text-gray-300 text-lg max-w-2xl mx-auto">
             Tulisan dan pemikiran saya tentang teknologi dan pengembangan web.
             Berbagi pengalaman dan wawasan dari perjalanan coding saya.
           </p>
@@ -75,30 +83,35 @@ export default function Essays() {
             <Link
               href={`/essays/${article.slug}`}
               key={article.slug}
-              className="group block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200 transform hover:-translate-y-1"
+              className="group block bg-gray-900/80 backdrop-blur-lg rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-blue-500 transform hover:-translate-y-2"
             >
-              <div className="p-6">
+              <div className="p-6 relative">
+                {/* Floating Background Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+
                 {/* Category & Date */}
                 <div className="flex justify-between items-center mb-4">
-                  <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">
+                  <span
+                    className={`inline-block px-3 py-1 text-xs font-semibold rounded-full ${article.categoryColor}`}
+                  >
                     {article.category}
                   </span>
-                  <time className="text-sm text-gray-500">{article.date}</time>
+                  <time className="text-sm text-gray-400">{article.date}</time>
                 </div>
 
                 {/* Title */}
-                <h2 className="font-semibold text-2xl text-gray-800 group-hover:text-blue-600 transition-colors">
+                <h2 className="font-semibold text-2xl text-white group-hover:text-blue-400 transition-colors">
                   {article.title}
                 </h2>
 
                 {/* Description */}
-                <p className="mt-3 text-gray-600 line-clamp-3">
+                <p className="mt-3 text-gray-400 line-clamp-3">
                   {article.description}
                 </p>
 
                 {/* Read More Link */}
                 <div className="mt-6 flex justify-end">
-                  <span className="inline-flex items-center text-sm font-medium text-blue-600 group-hover:underline">
+                  <span className="inline-flex items-center text-sm font-medium text-blue-400 group-hover:underline">
                     Baca selengkapnya
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
